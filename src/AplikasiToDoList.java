@@ -1,9 +1,10 @@
 public class AplikasiToDoList {
 
     public static String[] model = new String[10];
+    public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args) {
-        testRemoveTodoList();
+        testInput();
     }
 
     /**
@@ -75,9 +76,9 @@ public class AplikasiToDoList {
      * Menghapus todo dari list
      */
     public static boolean removeTodoList(Integer number){
-        if ((number - 1) >= model.length) {
+        if ((number - 1) >= model.length) {         // cek kalo lebih dari indexnya
             return false;
-        } else if (model[number - 1] == null){
+        } else if (model[number - 1] == null){      // cek kalo sudah null
             return false;
         } else {
             for (int i = (number - 1); i < model.length; i++){
@@ -132,7 +133,25 @@ public class AplikasiToDoList {
      * Menampikan view todo list
      */
     public static void viewShowTodoList(){
+        while (true){
+            showTodoList();
 
+            System.out.println("MENU : ");
+            System.out.println("1. Tambah");
+            System.out.println("2. Hapus");
+            System.out.println("x. Keluar");
+
+            var input = input("Pilih");
+            if (input.equals("1")){
+                viewAddTodoList();
+            }else if (input.equals("2")){
+                viewRemoveTodoList();
+            }else if(input.equals("x")) {
+                break;
+            }else {
+                System.out.println("Pilihan tidak dimengerti");
+            }
+        }
     }
 
     /**
@@ -145,7 +164,7 @@ public class AplikasiToDoList {
     /**
      * Menampilkan view menghapus todo list
      */
-    public static void vewRemoveTodoList(){
+    public static void viewRemoveTodoList(){
 
     }
 
