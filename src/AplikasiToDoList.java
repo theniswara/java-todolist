@@ -109,6 +109,21 @@ public class AplikasiToDoList {
     }
 
 
+    public static String input(String info){
+        System.out.print(info + " : ");
+        String data = scanner.nextLine();
+        return data;
+    }
+
+    public static void testInput(){
+        var name = input("Nama");
+        System.out.println("Hi " + name);
+
+        var alamat = input("Alamat");
+        System.out.println(alamat);
+    }
+
+
     /**
      * METHOD UNTUK VIEW
      */
